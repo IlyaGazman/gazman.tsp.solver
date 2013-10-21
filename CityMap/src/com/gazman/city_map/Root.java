@@ -29,7 +29,7 @@ public class Root implements Runnable, IResoultCallback {
 	}
 
 	// Settings
-	public static Test TEST = Test.TIME_TEST;
+	public static Test TEST = Test.STATISTIC_TEST;
 
 	public static final int NUMBER_OF_CITIES = 19;
 	public static final boolean SHOW_GUI = false;
@@ -82,7 +82,7 @@ public class Root implements Runnable, IResoultCallback {
 	private void performStatisticTest() {
 		StatisticsTest statisticsTest = new StatisticsTest();
 		statisticsTest.init(new StreightMapEngine());
-		statisticsTest.start(50, 20);
+		statisticsTest.start(50, 30);
 	}
 
 	@Override

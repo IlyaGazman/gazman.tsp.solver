@@ -99,28 +99,28 @@ public class StreightMapEngine implements IEngine {
 				}
 			}
 
-			CityData cityData = new CityData();
-			cityData.city = city;
-			cityData.index = i;
-			cityData.distanceToCity = intersactionPath.getDistance(city);
-			cityDatas.add(cityData);
+//			CityData cityData = new CityData();
+//			cityData.city = city;
+//			cityData.index = i;
+//			cityData.distanceToCity = intersactionPath.getDistance(city);
+//			cityDatas.add(cityData);
 
-			// cities.remove(i);
-			// intersactionPath.addCity(city);
-			// search();
-			// intersactionPath.removeLastCity();
-			// cities.add(i, city);
+			 cities.remove(i);
+			 intersactionPath.addCity(city);
+			 search();
+			 intersactionPath.removeLastCity();
+			 cities.add(i, city);
 		}
 
 		Collections.sort(cityDatas, comparator);
 
-		for (CityData cityData : cityDatas) {
-			cities.remove(cityData.index);
-			intersactionPath.addCity(cityData.city);
-			search();
-			intersactionPath.removeLastCity();
-			cities.add(cityData.index, cityData.city);
-		}
+//		for (CityData cityData : cityDatas) {
+//			cities.remove(cityData.index);
+//			intersactionPath.addCity(cityData.city);
+//			search();
+//			intersactionPath.removeLastCity();
+//			cities.add(cityData.index, cityData.city);
+//		}
 
 	}
 

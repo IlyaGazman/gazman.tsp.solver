@@ -8,10 +8,13 @@ import java.math.BigInteger;
  */
 public class City {
 
-	private static BigInteger _mask = new BigInteger("1");
+	private static long _mask = 1;
+//	private static BigInteger _mask = new BigInteger("1");
+	private static int count = 0;
 
 	public int x, y;
-	public final BigInteger mask;
+	public final long mask;
+//	public final BigInteger mask;
 
 	public City(int x, int y) {
 		this();
@@ -20,8 +23,10 @@ public class City {
 	}
 
 	City() {
-		mask = _mask.shiftLeft(1);
-		_mask = mask;
+//		mask = _mask.shiftLeft(1);
+		mask = _mask << count;
+		count++;
+//		_mask = mask;
 	}
 
 	@Override
