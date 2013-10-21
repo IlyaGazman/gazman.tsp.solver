@@ -54,14 +54,14 @@ public class StreightMapEngine implements IEngine {
 		return pathList;
 	}
 	
-//	private int minCitiesSize = Integer.MAX_VALUE;
+	private int minCitiesSize = Integer.MAX_VALUE;
 
 	private void search() {
 		
-//		if(cities.size() < minCitiesSize){
-//			FileLog.instance.log("got cities " + cities.size());
-//			minCitiesSize = cities.size();
-//		}
+		if(cities.size() < minCitiesSize){
+			FileLog.instance.log("got cities " + cities.size());
+			minCitiesSize = cities.size();
+		}
 		
 		ActionsCounter.instance.count("Straight work");
 		if (pathList.size() != 0) {
@@ -83,8 +83,6 @@ public class StreightMapEngine implements IEngine {
 			return;
 		}
 		
-		
-
 		ArrayList<CityData> cityDatas = new ArrayList<>();
 
 		for (int i = 1; i < cities.size(); i++) {
@@ -101,28 +99,28 @@ public class StreightMapEngine implements IEngine {
 				}
 			}
 
-//			CityData cityData = new CityData();
-//			cityData.city = city;
-//			cityData.index = i;
-//			cityData.distanceToCity = intersactionPath.getDistance(city);
-//			cityDatas.add(cityData);
+			CityData cityData = new CityData();
+			cityData.city = city;
+			cityData.index = i;
+			cityData.distanceToCity = intersactionPath.getDistance(city);
+			cityDatas.add(cityData);
 
-			 cities.remove(i);
-			 intersactionPath.addCity(city);
-			 search();
-			 intersactionPath.removeLastCity();
-			 cities.add(i, city);
+			// cities.remove(i);
+			// intersactionPath.addCity(city);
+			// search();
+			// intersactionPath.removeLastCity();
+			// cities.add(i, city);
 		}
 
-//		Collections.sort(cityDatas, comparator);
-//
-//		for (CityData cityData : cityDatas) {
-//			cities.remove(cityData.index);
-//			intersactionPath.addCity(cityData.city);
-//			search();
-//			intersactionPath.removeLastCity();
-//			cities.add(cityData.index, cityData.city);
-//		}
+		Collections.sort(cityDatas, comparator);
+
+		for (CityData cityData : cityDatas) {
+			cities.remove(cityData.index);
+			intersactionPath.addCity(cityData.city);
+			search();
+			intersactionPath.removeLastCity();
+			cities.add(cityData.index, cityData.city);
+		}
 
 	}
 

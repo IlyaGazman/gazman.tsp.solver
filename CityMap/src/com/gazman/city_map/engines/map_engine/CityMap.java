@@ -59,11 +59,9 @@ public class CityMap {
 //	}
 
 	private String citiesToString(ArrayList<City> cities, City finalDestination) {
-		long key = 0;
-//		BigInteger key = new BigInteger("0");
+		BigInteger key = new BigInteger("0");
 		for (City city : cities) {
-			key |= city.mask;
-//			key = key.or(city.mask);
+			key = key.or(city.mask);
 		}
 
 		return cities.get(0) + "|" + key + "|" + finalDestination;

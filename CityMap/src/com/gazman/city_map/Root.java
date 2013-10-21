@@ -6,6 +6,7 @@ import com.gazman.city_map.city.City;
 import com.gazman.city_map.engines.map_engine.MapEngine;
 import com.gazman.city_map.engines.next_engine.NextEngine;
 import com.gazman.city_map.engines.streight_map.StreightMapEngine;
+import com.gazman.city_map.file.CitiesFile;
 import com.gazman.city_map.log.FileLog;
 import com.gazman.city_map.out.Screen;
 import com.gazman.city_map.test.compare.CompareTool;
@@ -22,16 +23,21 @@ public class Root implements Runnable, IResoultCallback {
 
 	// tests
 	public static enum Test {
-		COMPARE_TEST, STATISTIC_TEST, TIME_TEST
+		COMPARE_TEST, 
+		STATISTIC_TEST, 
+		TIME_TEST
 	}
 
 	// Settings
 	public static Test TEST = Test.TIME_TEST;
 
-	public static final int NUMBER_OF_CITIES = 22;
+	public static final int NUMBER_OF_CITIES = 19;
 	public static final boolean SHOW_GUI = false;
 
 	public static final boolean CIRCLE_TRIP = true;
+	/**
+	 * Math distance or random distance.
+	 */
 	public static final boolean MATH_DISTANCE = true;
 	/** reduce performance for extra testing */
 	public static final boolean DEBUG_TEST = false;
@@ -89,7 +95,7 @@ public class Root implements Runnable, IResoultCallback {
 		else {
 			engineTest = new EngineTest();
 			Object citiesData = null;
-			// citiesData = new CitiesFile().readCities("files/map3.txt");
+//			 citiesData = new CitiesFile().readCities("files/map2.txt");
 			// citiesData = new CitiesFile().readCities("files/map 7663.txt");
 			// citiesData =
 			// "12645,42973, 12421,42895, 12372,42711, 12300,42433, 12149,42477, 12058,42195, 11715,41836, 11511,42106, 11438,42057, 11003,42102, 11108,42373, 11155,42712, 11133,42885, 11183,42933, 11297,42853, 11310,42929, 11416,42983, 11423,43000, 11485,43187, 11461,43252, 11600,43150, 11595,43148, 11583,43150, 11569,43136, 11503,42855, 11522,42841, 11690,42686, 11770,42651, 11846,42660, 11822,42673, 11751,42814, 11785,42884, 11973,43026, 11963,43290, 12286,43355, 12386,43334, 12363,43189, 12355,43156";
